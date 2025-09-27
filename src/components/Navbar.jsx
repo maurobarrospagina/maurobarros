@@ -12,26 +12,25 @@ function Navbar() {
     { name: "CONTATO", href: "#contact" },
   ];
 
+  // Função de scroll suave
+  const scrollToSection = (id) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      const target = event.target;
-      if (isMenuOpen && !target.closest(".mobile-menu-container")) {
+      if (isMenuOpen && !event.target.closest(".mobile-menu-container")) {
         setIsMenuOpen(false);
       }
     };
@@ -74,21 +73,23 @@ function Navbar() {
           />
         </div>
 
+        {/* Menu Desktop */}
         <div className="hidden md:flex items-center space-x-2">
           {navItems.map((item, index) => (
-            <a
+            <button
               key={item.name}
-              href={item.href}
+              onClick={() => scrollToSection(item.href)}
               className="relative text-light px-6 py-3 font-medium tracking-wide text-sm hover:text-gold transition-all duration-300 ease-out group overflow-hidden rounded-full"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <span className="relative z-10">{item.name}</span>
               <div className="absolute inset-0 bg-gold/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left rounded-full"></div>
               <div className="absolute bottom-2 left-1/2 w-0 h-0.5 bg-gold group-hover:w-8 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 ease-out"></div>
-            </a>
+            </button>
           ))}
         </div>
 
+        {/* Menu Mobile */}
         <div className="md:hidden flex items-center mobile-menu-container">
           <button
             className="relative text-light hover:text-gold p-2 rounded-lg transition-all duration-300 ease-out hover:bg-gold/10"
@@ -117,6 +118,7 @@ function Navbar() {
         </div>
       </nav>
 
+      {/* Menu Mobile Overlay */}
       <div
         className={`md:hidden fixed inset-0 z-40 transition-all duration-500 ease-out mobile-menu-container ${
           isMenuOpen ? "visible" : "invisible"
@@ -138,30 +140,32 @@ function Navbar() {
           <div className="p-6">
             <div className="flex flex-col space-y-2">
               {navItems.map((item, index) => (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
-                  className={`relative text-light px-6 py-4 font-medium tracking-wide hover:text-gold transition-all duration-300 ease-out group rounded-xl hover:bg-gold/10 ${
+                  onClick={() => {
+                    scrollToSection(item.href);
+                    setIsMenuOpen(false);
+                  }}
+                  className={`relative text-light px-6 py-4 font-medium tracking-wide hover:text-gold transition-all duration-300 ease-out group rounded-xl ${
                     isMenuOpen ? "animate-fade-in-up" : ""
                   }`}
                   style={{
                     animationDelay: `${(index + 1) * 100}ms`,
                     animationFillMode: "both",
                   }}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   <span className="relative z-10 text-center block">
                     {item.name}
                   </span>
                   <div className="absolute left-0 top-1/2 w-1 h-0 bg-gold group-hover:h-8 group-hover:-translate-y-1/2 transition-all duration-300 ease-out rounded-full"></div>
-                </a>
+                </button>
               ))}
             </div>
           </div>
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes fade-in-up {
           from {
             opacity: 0;

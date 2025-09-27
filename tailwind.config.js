@@ -9,6 +9,10 @@ export default {
         gold: "#b8860b", // Tom de dourado mais moderno e suave (Goldenrod)
         accent: "#333333", // Cor de destaque mais equilibrada
       },
+      fontFamily: {
+        sans: ["Montserrat", "Arial", "sans-serif"],
+        parisienne: ["Great Vibes", "cursive"], // Fonte padrão
+      },
     },
   },
   plugins: [],
