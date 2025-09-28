@@ -18,6 +18,8 @@ function App() {
       <section id="gallery">
         <Gallery />
       </section>
+      <section id="reviews">reviews</section>
+      <section id="contact">contato</section>
     </div>
   );
 }

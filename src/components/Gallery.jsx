@@ -111,6 +111,11 @@ export default function Gallery() {
       adjustHeight();
       emblaApi.on("select", adjustHeight);
       window.addEventListener("resize", adjustHeight);
+
+      // ⬅ Aqui definimos para desktop começar na 2ª imagem
+      if (window.innerWidth >= 1024) {
+        emblaApi.scrollTo(1); // index 1 = segunda imagem
+      }
     }
     return () => {
       if (emblaApi) {

@@ -13,15 +13,16 @@ function About() {
   });
 
   const images = [
-    "https://res.cloudinary.com/pageja/image/upload/v1759060491/11_cnzdga.jpg",
     "https://res.cloudinary.com/pageja/image/upload/v1759060272/05_rjaoez.jpg",
-    "https://res.cloudinary.com/pageja/image/upload/v1759066390/19_l79vvb.jpg",
+    "https://res.cloudinary.com/pageja/image/upload/v1758934815/SaveInsta.to_281451126_736778704427666_5817965141509993858_n_fmcuo1.jpg",
+    "https://res.cloudinary.com/pageja/image/upload/v1758934815/SaveInsta.to_281905022_1424989287974249_1225882886015369562_n_zex2ek.jpg",
+    "https://res.cloudinary.com/pageja/image/upload/v1758934816/SaveInsta.to_282142476_413737917375788_1850095637421557225_n_y4b0ca.jpg",
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 7000);
     return () => clearInterval(interval);
   }, [images.length]);
 

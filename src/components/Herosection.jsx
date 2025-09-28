@@ -7,7 +7,7 @@ function Herosection() {
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
           backgroundImage:
-            "url('https://res.cloudinary.com/pageja/image/upload/v1759069853/um-homem-com-uma-tatuagem-no-braco_1_l1zl5q.jpg')",
+            "url('https://res.cloudinary.com/pageja/image/upload/v1759075507/um-homem-com-uma-tatuagem-no-braco_1_cz8tzj_cf8pez.webp')",
         }}
       />
 
@@ -32,16 +32,17 @@ function Herosection() {
           Mauro Barros
         </motion.p>
 
-        <motion.button
-          className="mt-8 px-8 py-3 bg-gold text-black font-bold text-lg rounded-full shadow-lg "
+        <motion.a
+          className="mt-8 px-8 py-3 cursor-pointer bg-gold text-black font-bold text-lg rounded-full shadow-lg hover:bg-white hover:text-gold transition duration-300"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
+          href="#contact"
         >
           Agende seu horário
-        </motion.button>
+        </motion.a>
       </div>
     </div>
   );
