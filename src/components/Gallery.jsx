@@ -27,7 +27,7 @@ const AnimatedTitle = () => {
       className="text-4xl md:text-6xl text-light mb-4 font-parisienne"
       variants={container}
       initial="hidden"
-      animate={inView ? "visible" : "hidden"}
+      animate={inView ? "visible" : "hidden"} // só anima quando visível
     >
       {letters.map((letter, index) => (
         <motion.span key={index} variants={child}>
@@ -135,21 +135,17 @@ export default function Gallery() {
   }, [emblaApi, images.length]);
 
   return (
-    <motion.div
-      ref={galleryRef}
-      initial={{ opacity: 0, y: 50 }}
-      animate={galleryInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="bg-dark py-16 px-4"
-    >
+    <div ref={galleryRef} className="bg-dark py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center text- mb-12">
+        <div className="text-center mb-12">
           <AnimatedTitle />
 
           <motion.p
             className="text-lg md:text-xl text-light/60 mt-2 font-light"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={
+              galleryInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+            }
             transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
           >
             Obras de arte em tinta e pele
@@ -173,7 +169,11 @@ export default function Gallery() {
                     key={index}
                     style={{ flex: `0 0 ${100 / slidesToShow}%` }}
                     initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    animate={
+                      galleryInView
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: 0, y: 30 }
+                    }
                     transition={{ delay: index * 0.1, duration: 0.5 }}
                   >
                     <img
@@ -217,6 +217,7 @@ export default function Gallery() {
         </div>
       </div>
 
+      {/* Modal */}
       <AnimatePresence>
         {modalImage && (
           <motion.div
@@ -237,6 +238,6 @@ export default function Gallery() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 }

@@ -2,15 +2,18 @@ import "./App.css";
 
 import Navbar from "./components/Navbar";
 import Gallery from "./components/Gallery";
+import About from "./components/About";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <section className="mt-20" id="gallery">
+      <section id="about">
+        <About />
+      </section>
+      <section id="gallery">
         <Gallery />
       </section>
-      <p className="min-h-96">teste</p>
     </div>
   );
 }
