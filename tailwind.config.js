@@ -8,6 +8,7 @@ export default {
         light: "#f5f5f5", // Alternativa para branco
         gold: "#b8860b", // Tom de dourado mais moderno e suave (Goldenrod)
         accent: "#333333", // Cor de destaque mais equilibrada
+        
       },
       fontFamily: {
         sans: ["Montserrat", "Arial", "sans-serif"],
