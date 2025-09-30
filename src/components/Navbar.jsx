@@ -62,7 +62,7 @@ function Navbar() {
         className={`flex justify-between items-center px-6 py-4 h-20 fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
           isScrolled
             ? "bg-accent/95 backdrop-blur-md shadow-lg border-b border-gold/20"
-            : "bg-transparent"
+            : "bg-transparent shadow-none border-none"
         }`}
       >
         <div className="relative group">

@@ -27,7 +27,10 @@ function About() {
   }, [images.length]);
 
   return (
-    <section ref={ref} className="bg-dark min-h-screen py-20 px-6">
+    <section
+      ref={ref}
+      className="bg-dark min-h-screen py-20 px-6 overflow-x-hidden"
+    >
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Text content */}

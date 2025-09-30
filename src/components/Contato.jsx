@@ -3,7 +3,7 @@ import { FaTiktok } from "react-icons/fa6";
 
 export default function Contato() {
   return (
-    <section className="bg-black text-gray-200 py-12 flex flex-col items-center">
+    <section className="bg-dark text-gray-200 py-12 flex flex-col items-center">
       {/* Título */}
       <h2 className="text-3xl font-light mb-6 text-center">Contate-nos</h2>
 
