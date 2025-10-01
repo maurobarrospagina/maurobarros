@@ -12,7 +12,6 @@ function Navbar() {
     { name: "CONTATO", href: "#contact" },
   ];
 
-  // Função de scroll suave
   const scrollToSection = (id) => {
     const section = document.querySelector(id);
     if (section) {
@@ -65,11 +64,12 @@ function Navbar() {
             : "bg-transparent shadow-none border-none"
         }`}
       >
-        <div className="relative group">
+        {/* Logo Responsiva */}
+        <div className="relative group flex items-center">
           <img
             src="https://res.cloudinary.com/pageja/image/upload/v1758934756/Mauro_barros_logo_png_branco_kpvwob.png"
             alt="Logo Mauro Barros"
-            className="w-full h-full max-w-[100px] transition-transform duration-300 group-hover:scale-105"
+            className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </div>
 
